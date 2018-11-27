@@ -1,3 +1,13 @@
-build_platform: {osx_arm64: osx_64}
-conda_forge_output_validation: true
-test_on_native_only: true
+channels:
+  targets:
+  - [cryoem, main]
+
+github:
+  user_or_org: cryoem
+  repo_name: bsddb3-feedstock
+
+provider:
+  win: appveyor
+
+azure:
+  build_id: blank

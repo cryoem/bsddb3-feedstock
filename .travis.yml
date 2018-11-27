@@ -7,6 +7,9 @@ os: osx
 osx_image: xcode6.4
 
 env:
+  matrix:
+    - CONFIG=osx_
+
   global:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
     - secure: "U/dB4P5BTJkZb6FFErGlXOYHcXCUaqzYBGQWD30soJ4aBt2JYm+p7+y9vDkNrlhc69hYp4IqgUOX5W0rzcxbvMIScrLEtlOCwaWlxhCSEQN9P8fb4tVy3M/enWgn7/Lb8Nbc5rnX2FiVOPH7mOPiMBy2XeHaRDfwCUt7N4B0tGQfSX7vIWvOvKAt/u29Qeo/fNo6dgfVKQMnGCfHey9FpNtgL+fpClsbgerVdMJ7DHzSxkD/YrrbSZKBoIc9wGBuv1axhFdHISOp89cZCKyYwf+A+Gzg+lGJZMrudDOE36t2Q/V04ZOiKwwmzh44oDqMP410rpIRKXC2iONbVlQZLsSicFEQm5tCfeQyeE4N6gwdgS//AVhTj3tCzpmoPrHqwk+iu2lbXy/Z59pQ1lBkWNiA3e5bPy/HEFN30Mjk9eEXEU6jesUaC+azzntHOxNZsE9iSFQ1pCj5og7QT2TzO7BhUGv4NFZxvR/I3hmBrpR/ZkmkaLqu3fYJ+WgtDtK04BvWIumKynWPEYWqNfFI5E4wa5GArbMxv7+FDoCazdOXZm9sKEAE6o6o+XtVZSisjFKm/L2jjwXC2MP5y8sxRq0AtyMk3h8vh8Nqqo/20a7NQVDwvEVBHrE3XJBBz5yLtre3mEnueXLc2huSxiaEkeYwKoNE2GL7fuX91AC5ayo="
@@ -15,7 +18,7 @@ env:
 before_install:
     # Fast finish the PR.
     - |
-      (curl https://raw.githubusercontent.com/conda-forge/conda-forge-build-setup-feedstock/master/recipe/ff_ci_pr_build.py | \
+      (curl https://raw.githubusercontent.com/conda-forge/conda-forge-ci-setup-feedstock/branch2.0/recipe/conda_forge_ci_setup/ff_ci_pr_build.py | \
           python - -v --ci "travis" "${TRAVIS_REPO_SLUG}" "${TRAVIS_BUILD_NUMBER}" "${TRAVIS_PULL_REQUEST}") || exit 1
 
     # Remove homebrew.
@@ -43,13 +46,18 @@ install:
       echo ""
       echo "Configuring conda."
       source /Users/travis/miniconda3/bin/activate root
-      conda config --remove channels defaults
-      conda config --add channels conda-forge
-      conda config --set show_channel_urls true
-      conda install --yes --quiet conda-forge-build-setup
+
+      conda install --yes --quiet conda-forge::conda-forge-ci-setup=2
+      setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
+
       source run_conda_forge_build_setup
 
-script:
-  - conda build ./recipe
+    # compiler cleanup
+    - |
+      mangle_compiler ./ ./recipe ./.ci_support/${CONFIG}.yaml
 
-  - upload_or_check_non_existence ./recipe cryoem --channel=dev
+script:
+  # generate the build number clobber
+  - make_build_number ./ ./recipe ./.ci_support/${CONFIG}.yaml
+  - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml --clobber-file ./.ci_support/clobber_${CONFIG}.yaml
+  - upload_package ./ ./recipe ./.ci_support/${CONFIG}.yaml

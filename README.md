@@ -21,14 +21,16 @@ Complete support for Berkeley DB Base Replication. Support for RPC.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/cryoem/bsddb3-feedstock.svg?style=shield)](https://circleci.com/gh/cryoem/bsddb3-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/cryoem/bsddb3-feedstock.svg?branch=master)](https://travis-ci.org/cryoem/bsddb3-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/cryoem/bsddb3-feedstock/master.svg?label=Linux)](https://circleci.com/gh/cryoem/bsddb3-feedstock)
+[![OSX](https://img.shields.io/travis/cryoem/bsddb3-feedstock/master.svg?label=macOS)](https://travis-ci.org/cryoem/bsddb3-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/cryoem/bsddb3/badges/version.svg)](https://anaconda.org/cryoem/bsddb3)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/cryoem/bsddb3/badges/downloads.svg)](https://anaconda.org/cryoem/bsddb3)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-bsddb3-green.svg)](https://anaconda.org/cryoem/bsddb3) | [![Conda Downloads](https://img.shields.io/conda/dn/cryoem/bsddb3.svg)](https://anaconda.org/cryoem/bsddb3) | [![Conda Version](https://img.shields.io/conda/vn/cryoem/bsddb3.svg)](https://anaconda.org/cryoem/bsddb3) | [![Conda Platforms](https://img.shields.io/conda/pn/cryoem/bsddb3.svg)](https://anaconda.org/cryoem/bsddb3) |
 
 Installing bsddb3
 =================
@@ -71,7 +73,7 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](http://conda.pydata.org/docs/building/meta-yaml.html#build-number-and-string).
+   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](http://conda.pydata.org/docs/building/meta-yaml.html#build-number-and-string)
+   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.

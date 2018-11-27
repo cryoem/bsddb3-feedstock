@@ -1,7 +1,16 @@
-appveyor:
-  secure: {BINSTAR_TOKEN: tumuXLL8PU75WMnRDemRy02ruEq2RpNxeK3dz0MjFssnosPm2v4EFjfNB4PTotA1}
-compiler_stack: comp7
-max_py_ver: '37'
-max_r_ver: '35'
-travis:
-  secure: {BINSTAR_TOKEN: jox8+Ci24V6bDMOqo5Wq9D+lu9neUaE4MtXLcecsALLux7QbXGXJoNu5/wixziOgPcLINxTwRcJl3H3n4p0bIYloupINA/Q9Y+TrzqwPsp09AMP+LGcRIkt+kFjBRneB7EMnIk28547ClH7/u7Smw3xCdEZbyqpkQoIBre/r087M6u4Uej+wxNwSfsZ/bVshYgJNdea5G+d+IFnNZWj7zV7NPEOXHPFukM9qFXRXtNf/zl5ILiTAASHsYTkbtnYhwHqzaEr8KGp0qRm4b4UAv4HkvaBG9Ot4xe0IPOwizFtVjcm1NIWfymimC4uFH1lpRK4dPmsg/nPslHyc6jT0UC59l0H2gVVOq9fh6hqSBJ199d+MgMROemmw6OnjNMPiEfiSiylGjqakKtLo+jQy7mLpnz+99DxShpFqe04bT5SX0D4kj9JXr81fOSICzz2L0AayaZ2sw8yyB6ms4abO9k3juCBBWSct3xg03L0URo8pkxzLwja5f5oZVKw7sEhiVBFGY/UMRgsFDfmL/Xlq7bF8qBueUOgbOhYgW5en4PXK/eeZjkG2OQT6ZoEjaYEbympFyG6Qd0iMZq8wuxH5MlMRXfLUiQGD4BtfNOkkArbUOhRn/c7Oez48lc211UsrrpxbRX41uMkj9a0OB2xiUXc8MSf8u3+Pm8oZSuQB7aU=}
+channels:
+  sources: [cryoem, defaults, conda-forge]
+  targets:
+  - [cryoem, main]
+
+github:
+  user_or_org: cryoem
+  repo_name: bsddb3-feedstock
+
+provider:
+  linux: circle
+  osx: travis
+  win: appveyor
+
+azure:
+  build_id: blank

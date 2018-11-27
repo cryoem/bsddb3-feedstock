@@ -1,3 +1,12 @@
 travis:
   secure:
     BINSTAR_TOKEN: U/dB4P5BTJkZb6FFErGlXOYHcXCUaqzYBGQWD30soJ4aBt2JYm+p7+y9vDkNrlhc69hYp4IqgUOX5W0rzcxbvMIScrLEtlOCwaWlxhCSEQN9P8fb4tVy3M/enWgn7/Lb8Nbc5rnX2FiVOPH7mOPiMBy2XeHaRDfwCUt7N4B0tGQfSX7vIWvOvKAt/u29Qeo/fNo6dgfVKQMnGCfHey9FpNtgL+fpClsbgerVdMJ7DHzSxkD/YrrbSZKBoIc9wGBuv1axhFdHISOp89cZCKyYwf+A+Gzg+lGJZMrudDOE36t2Q/V04ZOiKwwmzh44oDqMP410rpIRKXC2iONbVlQZLsSicFEQm5tCfeQyeE4N6gwdgS//AVhTj3tCzpmoPrHqwk+iu2lbXy/Z59pQ1lBkWNiA3e5bPy/HEFN30Mjk9eEXEU6jesUaC+azzntHOxNZsE9iSFQ1pCj5og7QT2TzO7BhUGv4NFZxvR/I3hmBrpR/ZkmkaLqu3fYJ+WgtDtK04BvWIumKynWPEYWqNfFI5E4wa5GArbMxv7+FDoCazdOXZm9sKEAE6o6o+XtVZSisjFKm/L2jjwXC2MP5y8sxRq0AtyMk3h8vh8Nqqo/20a7NQVDwvEVBHrE3XJBBz5yLtre3mEnueXLc2huSxiaEkeYwKoNE2GL7fuX91AC5ayo=
+
+channels:
+  sources: [conda-forge]
+  targets:
+  - [cryoem, dev]
+
+github:
+  user_or_org: cryoem
+  repo_name: bsddb3-feedstock

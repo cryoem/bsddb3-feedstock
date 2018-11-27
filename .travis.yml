@@ -6,7 +6,10 @@ language: generic
 os: osx
 osx_image: xcode6.4
 
-
+env:
+  global:
+    # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
+    - secure: "U/dB4P5BTJkZb6FFErGlXOYHcXCUaqzYBGQWD30soJ4aBt2JYm+p7+y9vDkNrlhc69hYp4IqgUOX5W0rzcxbvMIScrLEtlOCwaWlxhCSEQN9P8fb4tVy3M/enWgn7/Lb8Nbc5rnX2FiVOPH7mOPiMBy2XeHaRDfwCUt7N4B0tGQfSX7vIWvOvKAt/u29Qeo/fNo6dgfVKQMnGCfHey9FpNtgL+fpClsbgerVdMJ7DHzSxkD/YrrbSZKBoIc9wGBuv1axhFdHISOp89cZCKyYwf+A+Gzg+lGJZMrudDOE36t2Q/V04ZOiKwwmzh44oDqMP410rpIRKXC2iONbVlQZLsSicFEQm5tCfeQyeE4N6gwdgS//AVhTj3tCzpmoPrHqwk+iu2lbXy/Z59pQ1lBkWNiA3e5bPy/HEFN30Mjk9eEXEU6jesUaC+azzntHOxNZsE9iSFQ1pCj5og7QT2TzO7BhUGv4NFZxvR/I3hmBrpR/ZkmkaLqu3fYJ+WgtDtK04BvWIumKynWPEYWqNfFI5E4wa5GArbMxv7+FDoCazdOXZm9sKEAE6o6o+XtVZSisjFKm/L2jjwXC2MP5y8sxRq0AtyMk3h8vh8Nqqo/20a7NQVDwvEVBHrE3XJBBz5yLtre3mEnueXLc2huSxiaEkeYwKoNE2GL7fuX91AC5ayo="
 
 
 before_install:
@@ -41,7 +44,6 @@ install:
       echo "Configuring conda."
       source /Users/travis/miniconda3/bin/activate root
       conda config --remove channels defaults
-      conda config --add channels defaults
       conda config --add channels conda-forge
       conda config --set show_channel_urls true
       conda install --yes --quiet conda-forge-build-setup
@@ -50,4 +52,4 @@ install:
 script:
   - conda build ./recipe
 
-  - upload_or_check_non_existence ./recipe conda-forge --channel=main
+  - upload_or_check_non_existence ./recipe cryoem --channel=dev

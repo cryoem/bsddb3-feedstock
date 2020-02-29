@@ -1,0 +1,15 @@
+diff --git a/setup3.py b/setup3.py
+index 8755d22..d75b5dc 100644
+--- a/setup3.py
++++ b/setup3.py
+@@ -377,8 +377,8 @@ elif os.name == 'nt':
+     # uses "Multithreaded DLL" and "Debug Multithreaded DLL"  (/MD and /MDd)
+     # settings as appropriate to build .lib file (the db_static project).
+ 
+-    incdir = 'db/include'
+-    libdir = 'db/lib'
++    incdir = os.path.join(os.environ.get('BERKELEYDB_DIR', ''), 'include')
++    libdir = os.path.join(os.environ.get('BERKELEYDB_DIR', ''), 'lib')
+ 
+     # read db.h to figure out what version of Berkeley DB this is
+     ver = None

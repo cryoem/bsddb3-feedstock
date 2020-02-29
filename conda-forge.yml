@@ -1,5 +1,5 @@
 channels:
-  sources: [defaults, conda-forge]
+  sources: [defaults]
   targets:
   - [cryoem, main]
 

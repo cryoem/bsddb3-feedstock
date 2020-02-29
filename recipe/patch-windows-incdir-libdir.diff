@@ -1,5 +1,5 @@
 diff --git a/setup3.py b/setup3.py
-index 8755d22..d9a4bb8 100644
+index 8755d22..2c42bb8 100644
 --- a/setup3.py
 +++ b/setup3.py
 @@ -377,8 +377,9 @@ elif os.name == 'nt':
@@ -26,3 +26,23 @@ index 8755d22..d9a4bb8 100644
      if db_ver not in db_ver_list:
          raise AssertionError("pybsddb untested with this Berkeley DB "
                  "version %d.%d" %db_ver)
+@@ -480,6 +486,10 @@ del config_vars
+ 
+ # #############################
+ 
++if sys.platform=='win32':
++    runtime_lib_dirs = []
++else:
++    runtime_lib_dirs = [ libdir ]
+ 
+ # do the actual build, install, whatever...
+ setup(name = 'bsddb3',
+@@ -524,7 +534,7 @@ pybsddb_doc/>`__ --
+                                depends = ['Modules/bsddb.h'],
+                                include_dirs = [ incdir ],
+                                library_dirs = [ libdir ],
+-                               runtime_library_dirs = [ libdir ],
++                               runtime_library_dirs = runtime_lib_dirs,
+                                libraries = libname,
+                                extra_link_args = lflags_arg,
+                                )],

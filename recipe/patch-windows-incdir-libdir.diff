@@ -1,5 +1,5 @@
 diff --git a/setup3.py b/setup3.py
-index 8755d22..8b4c059 100644
+index 8755d22..239b76a 100644
 --- a/setup3.py
 +++ b/setup3.py
 @@ -377,8 +377,9 @@ elif os.name == 'nt':
@@ -46,7 +46,7 @@ index 8755d22..8b4c059 100644
  
  # do the actual build, install, whatever...
  setup(name = 'bsddb3',
-@@ -524,7 +534,7 @@ pybsddb_doc/>`__ --
+@@ -524,12 +534,11 @@ pybsddb_doc/>`__ --
                                 depends = ['Modules/bsddb.h'],
                                 include_dirs = [ incdir ],
                                 library_dirs = [ libdir ],
@@ -55,3 +55,8 @@ index 8755d22..8b4c059 100644
                                 libraries = libname,
                                 extra_link_args = lflags_arg,
                                 )],
+       headers = ['Modules/bsddb.h'],
+-      data_files = utils,
+       classifiers = [
+                     'License :: OSI Approved :: BSD License',
+                     'Development Status :: 5 - Production/Stable',

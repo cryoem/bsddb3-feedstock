@@ -1,5 +1,5 @@
 {% set name = "bsddb3" %}
-{% set version = "6.2.7" %}
+{% set version = "6.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b0f7fa63eb240cd5815809c9d1d7df9f7cc8d6fa9619d0edbe9c794afc02dc9f
+  sha256: 22dc12cd8ab5d2458769e070534af3c42ad85d66880e28a55cdfd234494e8da3
   patches:                              # [win]
     - patch-windows-incdir-libdir.diff  # [win]
 

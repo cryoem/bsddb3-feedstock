@@ -5,9 +5,11 @@ Home: https://www.jcea.es/programacion/pybsddb.htm
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/cryoem/bsddb3-feedstock/blob/master/LICENSE.txt)
 
 Summary: Python bindings for Oracle Berkeley DB
+
+Documentation: https://www.jcea.es/programacion/pybsddb_doc/
 
 This module provides a nearly complete wrapping of the Oracle/Sleepycat C API for the Database Environment,
 Database, Cursor, Log Cursor, Sequence and Transaction objects,
@@ -28,49 +30,6 @@ Current build status
       <a href="https://ci.appveyor.com/project/cryoem/bsddb3-feedstock/branch/master">
         <img alt="windows" src="https://img.shields.io/appveyor/ci/cryoem/bsddb3-feedstock/master.svg?label=Windows">
       </a>
-    </td>
-  </tr>
-    
-  <tr>
-    <td>Azure</td>
-    <td>
-      <details>
-        <summary>
-          <a href="https://dev.azure.com/cryoem/feedstock-builds/_build/latest?definitionId=blank&branchName=master">
-            <img src="https://dev.azure.com/cryoem/feedstock-builds/_apis/build/status/bsddb3-feedstock?branchName=master">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>win_c_compilervs2015python3.7</td>
-              <td>
-                <a href="https://dev.azure.com/cryoem/feedstock-builds/_build/latest?definitionId=blank&branchName=master">
-                  <img src="https://dev.azure.com/cryoem/feedstock-builds/_apis/build/status/bsddb3-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015python3.7" alt="variant">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Linux</td>
-    <td>
-      <img src="https://img.shields.io/badge/linux-disabled-lightgrey.svg" alt="linux disabled">
-    </td>
-  </tr>
-  <tr>
-    <td>OSX</td>
-    <td>
-      <img src="https://img.shields.io/badge/OSX-disabled-lightgrey.svg" alt="OSX disabled">
-    </td>
-  </tr>
-  <tr>
-    <td>Linux_ppc64le</td>
-    <td>
-      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
     </td>
   </tr>
 </table>

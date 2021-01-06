@@ -1,7 +1,7 @@
 * text=auto
 
 *.patch binary
-*.diff text
+*.diff binary
 meta.yaml text eol=lf
 build.sh text eol=lf
 bld.bat text eol=crlf
@@ -17,6 +17,7 @@ bld.bat text eol=crlf
 .gitattributes linguist-generated=true
 .gitignore linguist-generated=true
 .travis.yml linguist-generated=true
+.scripts/* linguist-generated=true
 LICENSE.txt linguist-generated=true
 README.md linguist-generated=true
 azure-pipelines.yml linguist-generated=true

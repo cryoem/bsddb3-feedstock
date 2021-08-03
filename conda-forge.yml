@@ -7,7 +7,7 @@ github:
   repo_name: bsddb3-feedstock
 
 provider:
-  win: appveyor
+  win: github_actions
 
 azure:
   build_id: blank

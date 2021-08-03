@@ -24,14 +24,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Appveyor</td>
-    <td>
-      <a href="https://ci.appveyor.com/project/cryoem/bsddb3-feedstock/branch/master">
-        <img alt="windows" src="https://img.shields.io/appveyor/ci/cryoem/bsddb3-feedstock/master.svg?label=Windows">
-      </a>
-    </td>
-  </tr>
+<table>
 </table>
 
 Current release info

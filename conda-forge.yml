@@ -11,3 +11,6 @@ provider:
 
 azure:
   build_id: blank
+appveyor:
+  secure:
+    BINSTAR_TOKEN: IKCEuGznkMky7EruV0O+eJIN6T8lOx/ALYBXKlouPz40BKPfqOky24LFZpTlS/5Y

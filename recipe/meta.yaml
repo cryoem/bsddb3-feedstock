@@ -13,6 +13,7 @@ build:
   number: 1
   skip: True  # [unix]
   skip: True  # [py<37]
+  skip: True  # [python_impl == 'pypy']
 
 requirements:
   build:

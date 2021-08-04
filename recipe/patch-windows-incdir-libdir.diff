@@ -1,7 +1,7 @@
-diff --git a/recipe/setup3.py b/recipe/setup3.py
+diff --git a/setup3.py b/setup3.py
 index fe388ba..e0e8aa9 100644
---- a/recipe/setup3.py
-+++ b/recipe/setup3.py
+--- a/setup3.py
++++ b/setup3.py
 @@ -377,8 +377,9 @@ elif os.name == 'nt':
      # uses "Multithreaded DLL" and "Debug Multithreaded DLL"  (/MD and /MDd)
      # settings as appropriate to build .lib file (the db_static project).
@@ -64,8 +64,3 @@ index fe388ba..e0e8aa9 100644
        classifiers = [
                      'License :: OSI Approved :: BSD License',
                      'Development Status :: 5 - Production/Stable',
-@@ -591,4 +604,3 @@ if sys.version_info >= (3, 6):
-           "process should be simple, nevertheless.\n"
-           "\n"
-           )
--

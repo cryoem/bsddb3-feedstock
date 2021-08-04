@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 42d621f4037425afcb16b67d5600c4556271a071a9a7f7f2c2b1ba65bc582d05
-  patches:                              # [win]
-    - patch-windows-incdir-libdir.diff  # [win]
 
 build:
   number: 1
@@ -21,6 +19,7 @@ build:
     export BERKELEYDB_DIR=$PREFIX                                  # [not win]
     set YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION=1     # [win]
     set BERKELEYDB_DIR=%LIBRARY_PREFIX%                            # [win]
+    copy %RECIPE_DIR%\setup3.py %SRC_DIR%                           # [win]
     {{ PYTHON }} -m pip install . --no-deps --ignore-installed
 
 requirements:

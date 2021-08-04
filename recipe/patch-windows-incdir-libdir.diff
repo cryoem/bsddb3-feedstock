@@ -1,7 +1,7 @@
-diff --git a/setup3.py b/setup3.py
-index 8755d22..239b76a 100644
---- a/setup3.py
-+++ b/setup3.py
+diff --git a/recipe/setup3.py b/recipe/setup3.py
+index fe388ba..e0e8aa9 100644
+--- a/recipe/setup3.py
++++ b/recipe/setup3.py
 @@ -377,8 +377,9 @@ elif os.name == 'nt':
      # uses "Multithreaded DLL" and "Debug Multithreaded DLL"  (/MD and /MDd)
      # settings as appropriate to build .lib file (the db_static project).
@@ -14,39 +14,43 @@ index 8755d22..239b76a 100644
  
      # read db.h to figure out what version of Berkeley DB this is
      ver = None
-@@ -393,6 +394,11 @@ elif os.name == 'nt':
+@@ -393,6 +394,12 @@ elif os.name == 'nt':
          fullverstr = match.group(1)
          ver = fullverstr[0] + fullverstr[2]   # 31 == 3.1, 32 == 3.2, etc.
          db_ver = (int(fullverstr[0]), int(fullverstr[2]))
 +
 +    # Supported Berkeley DB versions, in order of preference.
 +    db_ver_list = ((6, 2), (6, 1),
-+            (5, 3), (5, 1),
-+            (4, 8), (4, 7))
++                                (5, 3), (5, 1),
++                                (4, 8), (4, 7))
++
      if db_ver not in db_ver_list:
          raise AssertionError("pybsddb untested with this Berkeley DB "
                  "version %d.%d" %db_ver)
-@@ -401,7 +407,7 @@ elif os.name == 'nt':
+@@ -401,7 +408,8 @@ elif os.name == 'nt':
      if debug:
          libname = ['libdb%ssd' % ver]     # Debug, static
      else:
 -        libname = ['libdb%ss' % ver]      # Release, static
 +        libname = ['libdb%s' % ver]      # Release, static
++
      utils = [("bsddb3/utils",
                ["db/bin/db_archive.exe",
                 "db/bin/db_checkpoint.exe",
-@@ -480,6 +486,10 @@ del config_vars
- 
+@@ -481,6 +489,12 @@ del config_vars
  # #############################
+ 
  
 +if sys.platform=='win32':
 +    runtime_lib_dirs = []
 +else:
 +    runtime_lib_dirs = [ libdir ]
- 
++
++
  # do the actual build, install, whatever...
  setup(name = 'bsddb3',
-@@ -524,12 +534,11 @@ pybsddb_doc/>`__ --
+       version = VERSION,
+@@ -539,12 +553,11 @@ pybsddb_doc/>`__ --
                                 depends = ['Modules/bsddb.h'],
                                 include_dirs = [ incdir ],
                                 library_dirs = [ libdir ],
@@ -60,3 +64,8 @@ index 8755d22..239b76a 100644
        classifiers = [
                      'License :: OSI Approved :: BSD License',
                      'Development Status :: 5 - Production/Stable',
+@@ -591,4 +604,3 @@ if sys.version_info >= (3, 6):
+           "process should be simple, nevertheless.\n"
+           "\n"
+           )
+-
